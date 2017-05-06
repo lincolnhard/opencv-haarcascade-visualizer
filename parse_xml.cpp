@@ -74,6 +74,7 @@ int main
     int detect_winsize = cascade.get_windowsize();
     int num_stages = cascade.get_stage_counts();
 
+    namedWindow("cascade layout", WINDOW_NORMAL);
     Mat im = Mat(detect_winsize * SCALEFACTOR, detect_winsize * SCALEFACTOR, CV_8UC1, Scalar(200));
     int i = 0;
     int j = 0;
@@ -116,7 +117,7 @@ int main
             imshow("cascade layout", im);
             if (waitKey(0) == 27)
                 {
-                break;
+                return EXIT_SUCCESS;
                 }
             im.setTo(Scalar(200));
             }
